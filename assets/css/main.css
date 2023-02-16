@@ -1,0 +1,439 @@
+:root {
+    --dark: #171c26;
+    --darkgray: #6c7689;
+    --lightgray: #a4aab7;
+    --light: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+body {
+    max-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dee2eb;
+}
+
+.container {
+    width: 430px;
+    min-height: 400px;
+    max-width: 100%;
+    background-color: #f1f2f5;
+    border-radius: 64px;
+    display: flex;
+}
+.wrapper {
+    max-width: 100%;
+    width: 400px;
+    background-color: var(--light);
+    border-radius: 50px;
+    margin: 15px;
+    user-select: none;
+    position: relative;
+
+}
+.player {
+    width: 100%;
+    padding: 26px 20px;
+}
+
+.player_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.player_header span {
+    font-size: 3rem;
+    color: var(--dark);
+    cursor: pointer;
+    
+}
+.player_header h3 {
+    font-size: 2rem;
+    color: var(--dark);
+}
+
+.player_img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 30px auto 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    height: 320px;
+}
+.player_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+}
+.player_songif {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.player_songif span {
+    font-size: 2.6rem;
+    color: var(--darkgray);
+    cursor: pointer;
+}
+.songif_info {
+    text-align: center;
+}
+
+.song_name {
+    font-size: 2.3rem;
+    color: var(--dark);
+}
+
+.song_author {
+    font-size: 1.8rem;
+    margin-top: 15px;
+    color: var(--darkgray);
+}
+
+.progress_area {
+    width: 100%;
+    height: 7px;
+    background-color: #f1f2f5;
+    border-radius: 50px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+.progress-bar {
+    width: 0%;
+    height: 7px;
+    border-radius: inherit;
+    background-image: linear-gradient(90deg, #141E30, #243B55);
+    position: relative;
+}
+.progress-bar::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    background-image: linear-gradient(90deg, #000000, #434343);
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--light);
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);  
+    display: none;  
+    transition: all linear 0.4s;
+}
+
+.progress_area:hover .progress-bar::after {
+    display: block;
+}
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.timer span {
+    font-size: 1.6rem;
+    color: var(--dark);
+}
+
+.player_controls {
+    margin: 40px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all linear .4s;
+}
+.player_controls span {
+    color: var(--dark);
+    font-size: 3rem;
+    cursor: pointer;
+}
+.player_controls span:hover {
+    transform: scale(1.2);
+}
+.play_pause {
+    width: 60px;
+    height: 60px;
+    background-image: linear-gradient(90deg, #000000, #434343);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all linear .1s;
+}
+
+
+.play_pause span {
+    color: var(--light);
+}
+.play_pause:hover {
+    transform: scale(1.1);
+}
+.play_pause span:hover {
+    color: var(--light);
+    transform: scale(1);
+}
+.playlist {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--light);
+    border-radius: 50px;
+    padding: 0 20px;
+    overflow: scroll;
+    transform: translateY(-100%);
+    transition: all .25s linear;
+    opacity: 0;
+}
+.playlist.show {
+    transform: translateY(0%);
+    opacity: 1;
+}
+.playlist::-webkit-scrollbar {
+    display: none;
+}
+.playlist_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.playlist_header span {
+    font-size: 3rem;
+    color: var(--dark);
+    cursor: pointer;
+}
+.playlist_currsong {
+    margin-top: 30px;
+    width: 100%;
+    background-color: var(--light);
+    border-top: 10px solid var(--light);
+    position: sticky;
+    height: 300px;
+    top: 30px;
+}
+.playlist_currsong::before {
+    content: "";
+    position: absolute;
+    background-color: var(--light);
+    top: -50px;
+    height: 50px;
+    width: 100%;
+}
+
+.currsongif {
+    display: flex;
+    align-items: center;
+}
+.currsongif-img {
+    flex: 2;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    height: 150px;
+}
+
+.currsongif-img img {
+    width: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    height: 100%;
+}
+
+.currsongif-info {
+    flex: 3;
+}
+.currsongif-info-container {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.currsongif-album {
+    font-size: 1.4rem;
+    color: var(--darkgray);
+    margin-bottom: 10px;
+}
+
+.currsongif-name {
+    font-size: 1.8rem;
+    color: var(--dark);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.currsongif-author {
+    font-size: 1.4rem;
+    color: var(--darkgray);
+    margin-top: 10px;
+}
+
+.currsongif-info-icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.currsongif-info-icon span {
+    font-size: 2.6rem;
+    color: #313f5a;
+}
+
+.currsongif-info-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 60px;
+    background-color: var(--dark);
+    border-radius: 50px;
+    margin: 20px 0 10px 0;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    --webkit-tap-highlight-color: transparent;
+}
+
+.currsongif-info-btn span {
+    font-size: 4rem;
+    color: var(--light);
+}
+.currsongif-info-btn span:hover {
+    transform: scale(1.15);
+}
+.currsongif-info-playpause-btn:hover{
+    opacity: 0.93;
+}
+
+
+/* main playlist */
+
+.main_playlist {
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+.main_playlist::-webkit-scrollbar {
+    display: none;
+}
+
+.main_playlist-item {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-radius: 16px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.main_playlist-item.active {
+    background-image: linear-gradient(90deg, #fff, #f1f1f1);
+}
+.playlist-item-index {
+    flex: 1;
+    font-size: 1.6rem;
+    color: var(--dark);
+}
+
+.playlist-itemif {
+    flex: 8;
+}
+
+.playlist-item-name {
+    font-size: 1.8rem;
+    color: var(--dark);
+}
+
+.playlist-item-author {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: var(--darkgray);
+    margin-bottom: 10px;
+
+}
+.main_playlist-item-icon {
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: var(--darkgray);
+}
+
+.main_playlist-item-icon:hover {
+    transform: scale(1.1);
+}
+
+
+/* song  nhac */
+
+.waves_container{
+    align-items: flex-end;
+    display: none;
+}
+
+.waves_container.show_wave {
+    display: flex;
+}
+
+.music_waves {
+    width: 4px;
+    border-radius: 50px;
+    background-color: var(--darkgray);
+    margin-right: 2px;
+    user-select: none;
+    transition: all 0.2s step-end;
+}
+.music_waves.wave1 {
+    height: 6px;
+    animation: wave1Ani linear infinite .35s;
+}
+
+.music_waves.wave2 {
+    height: 10px;
+    animation: wave2Ani linear infinite .35s;
+}
+
+.music_waves.wave3 {
+    height: 18px;
+    animation: wave3Ani linear infinite .35s;
+}
+
+.music_waves.wave4 {
+    height: 10px;
+    animation: wave4Ani linear infinite .35s;
+}
+
+@keyframes wave1Ani {
+    to {
+        height: 18px;
+    }
+}
+@keyframes wave2Ani {
+    to {
+        height: 20px;
+    }
+}
+@keyframes wave3Ani {
+    to {
+        height: 26px;
+    }
+}
+@keyframes wave4Ani {
+    to {
+        height: 18px;
+    }
+}

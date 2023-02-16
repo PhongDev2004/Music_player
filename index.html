@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="player">
+                <div class="player_header">
+                    <span class="material-icons-outlined">expand_more</span>
+                     <h3>Now Playing</h3>   
+                     <span id="music_list" class="material-icons-outlined">queue_music</span>
+                </div>
+
+                <div class="player_img">
+                    <img src="" alt="">
+                </div>
+                
+                <div class="player_songif">
+                    <!-- <span class="songif_favorite material-icons-outlined">favorite_border</span> -->
+                    <div class="songif_info">
+                        <p class="song_name">Chắc Ai Đó Sẽ về</p>
+                        <p class="song_author">Son Tung Mtp</p>
+                    </div>   
+                     <!-- <span class="songif_more material-icons-outlined">more_horiz</span> -->
+                </div>
+
+                <div class="progress_area">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <div class="timer">
+                    <span class="current"></span>
+                    <span class="duration"></span>
+                </div>
+
+                <audio id="audio" src=""></audio>
+
+                <div class="player_controls">
+                    <span id="repeat-loop" class="material-icons-outlined">repeat</span>
+                    <span id="prev" class="material-icons">skip_previous</span>
+                    <div class="play_pause">
+                        <span class="material-icons">play_arrow</span>
+                    </div>
+                    <span id="next" class="material-icons">skip_next</span> 
+                    <span class="material-icons">headphones</span> 
+                </div>
+                
+            </div>
+            <div class="playlist">
+                <div class="playlist_currsong">
+                    <div class="playlist_header">
+                        <span class="material-icons-outlined">search</span>
+                        <span id="close" class="material-icons-outlined">close</span>
+                    </div>
+                    <div class="currsongif">
+                        <div class="currsongif-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="currsongif-info">
+                            <div class="currsongif-info-container">
+                                <p class="currsongif-album"></p>
+                                <p class="currsongif-name"></p>
+                                <p class="currsongif-author"></p>
+                            </div>
+                            <div class="currsongif-info-icon">
+                                <span class="material-icons">music_video</span>
+                                <span class="material-icons-outlined">file_download</span>
+                                <span class="material-icons-outlined">pending</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="currsongif-info-btn">
+                        <span class="currsongif-info-prev-btn material-icons-round">skip_previous </span>
+                        <span class="currsongif-info-playpause-btn material-icons-round">play_circle</span>
+                        <span class="currsongif-info-next-btn material-icons-round">skip_next</span>
+                            
+                            
+                    </div>
+                </div>
+                <div class="main_playlist">
+                   
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
